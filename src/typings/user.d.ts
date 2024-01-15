@@ -1,9 +1,9 @@
 interface UserInterface {
-  id: string;
-  name: string;
-  mobile: string;
-  email: string;
-  avatar: string;
+  id: string
+  name: string
+  mobile: string
+  email: string
+  avatar: string
 }
 
-export { UserInterface };
+export { UserInterface }
