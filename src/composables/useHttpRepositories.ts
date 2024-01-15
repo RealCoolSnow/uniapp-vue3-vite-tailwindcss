@@ -1,8 +1,8 @@
-import { RequestInterface } from "@/typings/request";
-import { inject } from "vue";
+import { RequestInterface } from '@/typings/request'
+import { inject } from 'vue'
 export default function useHttpRepositories() {
-  const $http: RequestInterface = inject("$http") as RequestInterface;
+  const $http: RequestInterface = inject('$http') as RequestInterface
   return {
-    $http,
-  };
+    $http
+  }
 }
