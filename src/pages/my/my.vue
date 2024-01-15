@@ -15,7 +15,7 @@
         <text v-else>{{ user.name ? user.name : '未知昵称' }}</text>
       </view>
     </view>
-    <u-loading-page :loading="true"></u-loading-page>
+    <u-loading-page :loading="false"></u-loading-page>
   </view>
 </template>
 
@@ -39,38 +39,38 @@ onShow(() => {
   console.log('page show')
 })
 function goLoginHandle(e: any) {
-  show.value = true
+  // show.value = true
   // return
-  // if (!isLoggedIn.value) {
-  //   uni.navigateTo({
-  //     url: '/pages/login/login'
-  //   })
-  // } else {
-  //   uni.getUserProfile({
-  //     desc: '获取您的头像和昵称',
-  //     lang: 'zh_CN',
-  //     success: (res) => {
-  //       console.log(res)
-  //       uni.showLoading({
-  //         title: '加载中...',
-  //         mask: true
-  //       })
-  //       $http.post({
-  //         url: 'api/user/updateUserInfo',
-  //         data: {
-  //           nickName: res.userInfo.nickName,
-  //           avatarUrl: res.userInfo.avatarUrl
-  //         },
-  //         success: (res) => {
-  //           userStore.setUser(res)
-  //         },
-  //         complete: () => {
-  //           uni.hideLoading()
-  //         }
-  //       })
-  //     }
-  //   })
-  // }
+  if (!isLoggedIn.value) {
+    uni.navigateTo({
+      url: '/pages/login/login'
+    })
+  } else {
+    uni.getUserProfile({
+      desc: '获取您的头像和昵称',
+      lang: 'zh_CN',
+      success: (res) => {
+        console.log(res)
+        uni.showLoading({
+          title: '加载中...',
+          mask: true
+        })
+        $http.post({
+          url: 'api/user/updateUserInfo',
+          data: {
+            nickName: res.userInfo.nickName,
+            avatarUrl: res.userInfo.avatarUrl
+          },
+          success: (res) => {
+            userStore.setUser(res)
+          },
+          complete: () => {
+            uni.hideLoading()
+          }
+        })
+      }
+    })
+  }
 }
 </script>
 

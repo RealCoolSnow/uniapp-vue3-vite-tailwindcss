@@ -48,7 +48,7 @@
       </template>
     </test>
   </view>
-  <u-tabbar
+  <!-- <u-tabbar
     :value="value1"
     :fixed="false"
     :placeholder="false"
@@ -60,7 +60,7 @@
       icon="play-right"
       @click="click1"></u-tabbar-item>
     <u-tabbar-item text="我的" icon="account" @click="click1"></u-tabbar-item>
-  </u-tabbar>
+  </u-tabbar> -->
 </template>
 
 <script setup lang="ts">
