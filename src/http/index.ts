@@ -1,10 +1,11 @@
 import request from './request'
 import { useUserStore } from '@/stores/user'
 
-const baseUrl = 'http://127.0.0.1:20002/'
+const baseUrl = import.meta.env.VITE_BASE_URL
 
+console.log('baseUrl', baseUrl)
 request.setConfig({
-  baseUrl: baseUrl,
+  baseUrl,
   debug: true
 })
 
@@ -39,7 +40,7 @@ request.interceptor.response = (res, config) => {
 
 // 全局的错误异常处理
 request.interceptor.fail = (res, config) => {
-  let ret = undefined
+  let ret
   let msg = ''
   if (res.statusCode === 200) {
     // 业务错误
